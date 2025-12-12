@@ -3,6 +3,7 @@
 import * as React from "react"
 import {
   IconDashboard,
+  IconFileText,
   IconHelp,
   IconInnerShadowTop,
   IconPalette,
@@ -45,6 +46,11 @@ const data = {
       title: "Design New",
       url: "/new-design",
       icon: IconPencilPlus,
+    },
+    {
+      title: "Templates",
+      url: "/templates",
+      icon: IconFileText,
     },
   ],
   navSecondary: [
