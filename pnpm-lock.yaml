@@ -194,9 +194,6 @@ importers:
       use-stick-to-bottom:
         specifier: ^1.1.1
         version: 1.1.1(react@19.2.1)
-      v0-sdk:
-        specifier: ^0.15.3
-        version: 0.15.3
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -3951,10 +3948,6 @@ packages:
   uuid@11.1.0:
     resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
     hasBin: true
-
-  v0-sdk@0.15.3:
-    resolution: {integrity: sha512-5bjDWTt9OTdOWaT4iH0wtyi9Cji8R4woV+fYxsz1sfRFvi9GzZ0t1LwwIgphatSXhT2n9VjuTWeYjn3EVz0YKA==}
-    engines: {node: '>=22', pnpm: '>=9'}
 
   vaul@1.1.2:
     resolution: {integrity: sha512-ZFkClGpWyI2WUQjdLJ/BaGuV6AVQiJ3uELGk3OYtP+B6yCO7Cmn9vPFXVJkRaGkOJu3m8bQMgtyzNHixULceQA==}
@@ -8492,8 +8485,6 @@ snapshots:
       react: 19.2.1
 
   uuid@11.1.0: {}
-
-  v0-sdk@0.15.3: {}
 
   vaul@1.1.2(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
     dependencies:

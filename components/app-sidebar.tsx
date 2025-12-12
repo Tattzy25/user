@@ -7,7 +7,6 @@ import {
   IconHelp,
   IconInnerShadowTop,
   IconPalette,
-  IconPencilPlus,
   IconSearch,
   IconSettings,
 } from "@tabler/icons-react"
@@ -27,8 +26,8 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "BridgitA-I",
+    email: "Hi@Bridgit-AI.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -41,11 +40,6 @@ const data = {
       title: "My Designs",
       url: "/my-designs",
       icon: IconPalette,
-    },
-    {
-      title: "Design New",
-      url: "/new-design",
-      icon: IconPencilPlus,
     },
     {
       title: "Templates",
@@ -84,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">BRIDGIT - AI</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
