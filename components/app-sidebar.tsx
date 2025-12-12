@@ -9,6 +9,7 @@ import {
   IconPalette,
   IconSearch,
   IconSettings,
+  IconSparkles,
 } from "@tabler/icons-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -42,6 +43,11 @@ const data = {
       icon: IconPalette,
     },
     {
+      title: "Imagine",
+      url: "/imagine",
+      icon: IconSparkles,
+    },
+    {
       title: "Templates",
       url: "/templates",
       icon: IconFileText,
@@ -50,12 +56,12 @@ const data = {
   navSecondary: [
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: IconSettings,
     },
     {
       title: "Get Help",
-      url: "#",
+      url: "/help",
       icon: IconHelp,
     },
     {
