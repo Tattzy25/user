@@ -21,7 +21,8 @@ import { Loader } from '@/components/ai-elements/loader';
 import { Suggestions, Suggestion } from '@/components/ai-elements/suggestion';
 interface Chat {
   id: string;
-  demo: string;
+  demoUrl: string | null;
+  webUrl: string | null;
 }
 export default function Home() {
   const [message, setMessage] = useState('');
@@ -122,19 +123,19 @@ export default function Home() {
             <Suggestions>
               <Suggestion
                 onClick={() =>
-                  setMessage('Create a responsive navbar with Tailwind CSS')
+                  setMessage('Create a floating search bar widget with a clean design')
                 }
-                suggestion="Create a responsive navbar with Tailwind CSS"
+                suggestion="Create a floating search bar widget with a clean design"
               />
               <Suggestion
-                onClick={() => setMessage('Build a todo app with React')}
-                suggestion="Build a todo app with React"
+                onClick={() => setMessage('Build a modern non-floating search bar component')}
+                suggestion="Build a modern non-floating search bar component"
               />
               <Suggestion
                 onClick={() =>
-                  setMessage('Make a landing page for a coffee shop')
+                  setMessage('Make a responsive search bar with search icon and filters')
                 }
-                suggestion="Make a landing page for a coffee shop"
+                suggestion="Make a responsive search bar with search icon and filters"
               />
             </Suggestions>
           )}
@@ -164,10 +165,10 @@ export default function Home() {
             <WebPreviewUrl
               readOnly
               placeholder="Your app here..."
-              value={currentChat?.demo}
+              value={currentChat?.demoUrl || undefined}
             />
           </WebPreviewNavigation>
-          <WebPreviewBody src={currentChat?.demo} />
+          <WebPreviewBody src={currentChat?.demoUrl || undefined} />
         </WebPreview>
       </div>
     </div>
