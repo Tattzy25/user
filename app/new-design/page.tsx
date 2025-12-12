@@ -3,6 +3,7 @@
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import V0FrontEnd from "./v0-front-end"
 
 export default function DesignNewPage() {
   return (
@@ -18,12 +19,7 @@ export default function DesignNewPage() {
       <SidebarInset>
         <SiteHeader />
         <div className="flex flex-1 flex-col">
-          <div className="flex flex-1 items-center justify-center p-6">
-            <div className="flex flex-col items-center gap-4">
-              <div className="text-3xl font-semibold">Design New</div>
-              <div className="text-6xl">😢</div>
-            </div>
-          </div>
+          <V0FrontEnd />
         </div>
       </SidebarInset>
     </SidebarProvider>
