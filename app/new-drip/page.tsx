@@ -55,6 +55,7 @@ interface GeneratedFile {
 interface Chat {
   id: string
   demo: string
+  text: string
   files: GeneratedFile[]
   webUrl: string
 }
@@ -106,7 +107,7 @@ export default function NewDripPage() {
         ...prev,
         {
           type: "assistant",
-          content: "Your search bar widget is ready! Check the preview and grab the embed code below.",
+          content: chat.text || "Widget generated. Check the preview!",
         },
       ])
     } catch (error) {
@@ -218,7 +219,7 @@ export default function NewDripPage() {
                   >
                     <PromptInputTextarea
                       placeholder="Describe your search bar style..."
-                      className="pr-12 min-h-[60px]"
+                      className="pr-12 min-h-[60px] max-h-[96px] overflow-y-auto"
                     />
                     <PromptInputSubmit
                       className="absolute bottom-1 right-1"

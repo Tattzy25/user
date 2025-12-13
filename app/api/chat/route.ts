@@ -1,9 +1,5 @@
-import { type NextRequest, NextResponse } from 'next/server';
-import { createClient } from 'v0-sdk';
-
-const v0 = createClient({
-  apiKey: process.env.V0_API_KEY,
-});
+import { NextRequest, NextResponse } from 'next/server';
+import { v0 } from 'v0-sdk';
 
 const SYSTEM_PROMPT = `You are a specialized search bar widget generator. You ONLY create search bar components - nothing else.
 
@@ -22,9 +18,16 @@ Style preferences:
 - Smooth transitions
 - Accessible color contrasts`;
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const { message, chatId } = await req.json();
+    const { message, chatId } = await request.json();
+
+    if (!message) {
+      return NextResponse.json(
+        { error: 'Message is required' },
+        { status: 400 }
+      );
+    }
 
     if (!process.env.V0_API_KEY) {
       return NextResponse.json(
@@ -55,12 +58,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const demoUrl = chat.latestVersion?.demoUrl;
+    const demoUrl = chat.latestVersion?.demoUrl || chat.demo;
     const files = chat.latestVersion?.files || [];
+    const lastMessage = chat.messages?.find(m => m.role === 'assistant');
+    const responseText = lastMessage?.content || chat.text || '';
 
     return NextResponse.json({
       id: chat.id,
       demo: demoUrl,
+      text: responseText,
       files: files.map((f) => ({
         name: f.name,
         content: f.content,
