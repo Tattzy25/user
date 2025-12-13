@@ -12,7 +12,7 @@ const titles: Record<string, string> = {
   "/templates": "Templates",
   "/settings": "Settings",
   "/help": "Get Help",
-  "/imagine": "Imagine",
+  "/new-drip": "New Drip",
 }
 
 export function SiteHeader() {

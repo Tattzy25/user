@@ -9,6 +9,7 @@ import {
   IconPalette,
   IconSearch,
   IconSettings,
+  IconSkull,
   IconSparkles,
 } from "@tabler/icons-react"
 
@@ -33,6 +34,12 @@ const data = {
   },
   navMain: [
     {
+      title: "New Drip",
+      url: "#",
+      icon: IconSparkles,
+      isActive: true,
+    },
+    {
       title: "My Dashboard",
       url: "/my-dashboard",
       icon: IconDashboard,
@@ -41,11 +48,6 @@ const data = {
       title: "My Designs",
       url: "/my-designs",
       icon: IconPalette,
-    },
-    {
-      title: "Imagine",
-      url: "/imagine",
-      icon: IconSparkles,
     },
     {
       title: "Templates",

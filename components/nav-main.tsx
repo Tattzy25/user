@@ -19,6 +19,7 @@ export function NavMain({
     title: string
     url: string
     icon?: Icon
+    isActive?: boolean
   }[]
 }) {
   return (
@@ -27,9 +28,9 @@ export function NavMain({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title} className={item.title === "My Dashboard" ? "flex items-center gap-2" : ""}>
-              <SidebarMenuButton tooltip={item.title} asChild>
+              <SidebarMenuButton tooltip={item.title} asChild isActive={item.isActive}>
                 <Link href={item.url}>
-                  {item.icon && <item.icon />}
+                  {item.icon && <item.icon className={item.title === "New Drip" ? "!size-6" : ""} />}
                   <span>{item.title}</span>
                 </Link>
               </SidebarMenuButton>
