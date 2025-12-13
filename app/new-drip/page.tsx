@@ -26,14 +26,12 @@ import {
   Conversation,
   ConversationContent,
 } from "@/components/ai-elements/conversation"
-import { Loader } from "@/components/ai-elements/loader"
 import { Suggestions, Suggestion } from "@/components/ai-elements/suggestion"
 import {
   Artifact,
   ArtifactHeader,
   ArtifactTitle,
   ArtifactActions,
-  ArtifactAction,
   ArtifactContent,
 } from "@/components/ai-elements/artifact"
 import { CodeBlock, CodeBlockCopyButton } from "@/components/ai-elements/code-block"

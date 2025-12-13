@@ -96,7 +96,7 @@ export default function HelpPage() {
                     <div className="rounded-lg bg-muted p-4">
                       <h3 className="font-semibold mb-2">1. Create Your Search Bar</h3>
                       <p className="text-sm text-muted-foreground">
-                        Go to "New Drip" and describe the style of search bar you want. Our AI will generate it instantly.
+                        Go to &quot;New Drip&quot; and describe the style of search bar you want. Our AI will generate it instantly.
                       </p>
                     </div>
                     <div className="rounded-lg bg-muted p-4">
@@ -123,8 +123,8 @@ export default function HelpPage() {
                     <AccordionItem value="item-1">
                       <AccordionTrigger>How do I embed my search bar?</AccordionTrigger>
                       <AccordionContent>
-                        After generating your search bar, go to "My Designs" and click the copy button. 
-                        Paste the code into your website's HTML. The search functionality is pre-configured and ready to use.
+                        After generating your search bar, go to &quot;My Designs&quot; and click the copy button. 
+                        Paste the code into your website&apos;s HTML. The search functionality is pre-configured and ready to use.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
@@ -144,7 +144,7 @@ export default function HelpPage() {
                     <AccordionItem value="item-4">
                       <AccordionTrigger>How do I view my search analytics?</AccordionTrigger>
                       <AccordionContent>
-                        Visit "My Dashboard" to see real-time analytics of your users' search activity, 
+                        Visit &quot;My Dashboard&quot; to see real-time analytics of your users&apos; search activity, 
                         including search queries, results, and performance metrics.
                       </AccordionContent>
                     </AccordionItem>
