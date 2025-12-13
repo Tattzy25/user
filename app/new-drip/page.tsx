@@ -92,24 +92,62 @@ export default function NewDripPage() {
         },
         body: JSON.stringify({
           message: userMessage,
-          chatId: currentChat?.id,
         }),
       })
       
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || "Failed to generate widget")
+        throw new Error("Failed to generate widget")
       }
       
-      const chat: Chat = await response.json()
-      setCurrentChat(chat)
-      setChatHistory((prev) => [
-        ...prev,
-        {
-          type: "assistant",
-          content: chat.text || "Widget generated. Check the preview!",
-        },
-      ])
+      const reader = response.body?.getReader()
+      const decoder = new TextDecoder()
+      let streamedText = ""
+      let generatedCode = ""
+      let previewUrl = ""
+      
+      if (reader) {
+        setChatHistory((prev) => [...prev, { type: "assistant", content: "" }])
+        
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+          
+          const chunk = decoder.decode(value)
+          const lines = chunk.split("\n")
+          
+          for (const line of lines) {
+            if (line.startsWith("data: ")) {
+              try {
+                const data = JSON.parse(line.slice(6))
+                
+                if (data.type === "text") {
+                  streamedText += data.content
+                  setChatHistory((prev) => {
+                    const newHistory = [...prev]
+                    newHistory[newHistory.length - 1] = {
+                      type: "assistant",
+                      content: streamedText,
+                    }
+                    return newHistory
+                  })
+                } else if (data.type === "complete") {
+                  generatedCode = data.code
+                  previewUrl = data.preview
+                  setCurrentChat({
+                    id: Date.now().toString(),
+                    demo: previewUrl,
+                    text: data.text || streamedText,
+                    files: [{ name: "search-bar.html", content: generatedCode }],
+                    webUrl: previewUrl,
+                  })
+                }
+              } catch (e) {
+                console.error("Error parsing SSE data:", e)
+              }
+            }
+          }
+        }
+      }
     } catch (error) {
       console.error("Error:", error)
       setChatHistory((prev) => [
