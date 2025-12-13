@@ -32,9 +32,10 @@ import { useRef, useState } from "react";
 
 interface Ai03Props {
   className?: string;
+  onSubmit?: (value: string) => void;
 }
 
-export default function Ai03({ className }: Ai03Props) {
+export default function Ai03({ className, onSubmit }: Ai03Props) {
   const [input, setInput] = useState("");
   const [selectedModel, setSelectedModel] = useState("Local");
   const [selectedAgent, setSelectedAgent] = useState("Agent");
@@ -45,6 +46,8 @@ export default function Ai03({ className }: Ai03Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
+      onSubmit?.(input);
+      setInput("");
     }
   };
 

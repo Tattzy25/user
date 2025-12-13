@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { ModeToggle } from "@/components/ui/theme-toggle"
 import { usePathname } from "next/navigation"
+import { Context, ContextTrigger, ContextContent, ContextContentHeader, ContextContentBody, ContextInputUsage, ContextOutputUsage, ContextContentFooter } from "@/components/ai-elements/context"
 
 const titles: Record<string, string> = {
   "/my-dashboard": "My Dashboard",
@@ -27,7 +28,18 @@ export function SiteHeader() {
           className="mx-2 data-[orientation=vertical]:h-4"
         />
         <h1 className="text-base font-medium">{title}</h1>
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-6">
+          <Context usedTokens={150} maxTokens={1000} modelId="gpt-4">
+            <ContextTrigger />
+            <ContextContent>
+              <ContextContentHeader />
+              <ContextContentBody>
+                <ContextInputUsage />
+                <ContextOutputUsage />
+              </ContextContentBody>
+              <ContextContentFooter />
+            </ContextContent>
+          </Context>
           <ModeToggle />
         </div>
       </div>
