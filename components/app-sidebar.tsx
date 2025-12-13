@@ -35,7 +35,7 @@ const data = {
   navMain: [
     {
       title: "New Drip",
-      url: "#",
+      url: "/new-drip",
       icon: IconSparkles,
       isActive: true,
     },
