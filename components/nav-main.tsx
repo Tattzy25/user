@@ -1,36 +1,45 @@
-"use client"
+"use client";
 
-import { IconMail, type Icon } from "@tabler/icons-react"
-import Link from "next/link"
+import { IconMail, type Icon } from "@tabler/icons-react";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function NavMain({
   items,
 }: {
-  items: {
-    title: string
-    url: string
-    icon?: Icon
-    isActive?: boolean
-  }[]
+  readonly items: readonly {
+    readonly title: string;
+    readonly url: string;
+    readonly icon?: Icon;
+    readonly isActive?: boolean;
+  }[];
 }) {
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title} className={item.title === "My Dashboard" ? "flex items-center gap-2" : ""}>
-              <SidebarMenuButton tooltip={item.title} asChild isActive={item.isActive}>
+            <SidebarMenuItem
+              key={item.title}
+              className={
+                item.title === "My Dashboard" ? "flex items-center gap-2" : ""
+              }
+            >
+              <SidebarMenuButton
+                tooltip={item.title}
+                asChild
+                isActive={item.isActive}
+              >
                 <Link href={item.url}>
-                  {item.icon && <item.icon className={item.title === "New Drip" ? "!size-6" : ""} />}
+                  {item.icon && <item.icon />}
                   <span>{item.title}</span>
                 </Link>
               </SidebarMenuButton>
@@ -49,5 +58,5 @@ export function NavMain({
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }
